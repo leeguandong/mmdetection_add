@@ -27,7 +27,7 @@ def makeplot(rs, ps, outDir, class_name, iou_type):
         aps = [ps_.mean() for ps_ in area_ps]
         ps_curve = [
             ps_.mean(axis=1) if ps_.ndim > 1 else ps_ for ps_ in area_ps
-        ]
+            ]
         ps_curve.insert(0, np.zeros(ps_curve[0].shape))
         fig = plt.figure()
         ax = plt.subplot(111)
@@ -204,7 +204,7 @@ def analyze_individual_category(k,
     cocoEval.params.iouThrs = [0.1]
     cocoEval.params.useCats = 1
     if areas:
-        cocoEval.params.areaRng = [[0**2, areas[2]], [0**2, areas[0]],
+        cocoEval.params.areaRng = [[0 ** 2, areas[2]], [0 ** 2, areas[0]],
                                    [areas[0], areas[1]], [areas[1], areas[2]]]
     cocoEval.evaluate()
     cocoEval.accumulate()
@@ -223,7 +223,7 @@ def analyze_individual_category(k,
     cocoEval.params.iouThrs = [0.1]
     cocoEval.params.useCats = 1
     if areas:
-        cocoEval.params.areaRng = [[0**2, areas[2]], [0**2, areas[0]],
+        cocoEval.params.areaRng = [[0 ** 2, areas[2]], [0 ** 2, areas[0]],
                                    [areas[0], areas[1]], [areas[1], areas[2]]]
     cocoEval.evaluate()
     cocoEval.accumulate()
@@ -265,7 +265,7 @@ def analyze_results(res_file,
         cocoEval.params.iouThrs = [0.75, 0.5, 0.1]
         cocoEval.params.maxDets = [100]
         if areas:
-            cocoEval.params.areaRng = [[0**2, areas[2]], [0**2, areas[0]],
+            cocoEval.params.areaRng = [[0 ** 2, areas[2]], [0 ** 2, areas[0]],
                                        [areas[0], areas[1]],
                                        [areas[1], areas[2]]]
         cocoEval.evaluate()
@@ -307,11 +307,11 @@ def analyze_results(res_file,
 
 def main():
     parser = ArgumentParser(description='COCO Error Analysis Tool')
-    parser.add_argument('result', help='result file (json format) path')
-    parser.add_argument('out_dir', help='dir to save analyze result images')
+    parser.add_argument('--result', default="", help='result file (json format) path')
+    parser.add_argument('--out_dir', default="", help='dir to save analyze result images')
     parser.add_argument(
         '--ann',
-        default='data/coco/annotations/instances_val2017.json',
+        default='G:/git_leeguandong/mmdetection_add/data/VOCdevkit/VOC2007/ImageSets/Main/annotations/voc07_test.json',
         help='annotation file path')
     parser.add_argument(
         '--types', type=str, nargs='+', default=['bbox'], help='result types')

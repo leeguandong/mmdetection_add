@@ -134,7 +134,7 @@ def split_voc_dataset(dataset_dir, val_percent, test_percent, save_dir):
     return train_num, val_num, test_num
 
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     train_num, val_num, test_num = split_voc_dataset(
-        "G:/工作项目/openmmlab/mmdetection/data/VOCdevkit/VOC2007", 0.2, 0.1,
-        "G:/工作项目/openmmlab/mmdetection/data/VOCdevkit/VOC2007/ImageSets/Main")
+        "G:/git_leeguandong/mmdetection_add/data/VOCdevkit/VOC2007", 0.2, 0.1,
+        "G:/git_leeguandong/mmdetection_add/data/VOCdevkit/VOC2007/ImageSets/Main")

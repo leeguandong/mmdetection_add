@@ -41,13 +41,13 @@ def parse_xml(args):
             labels.append(label)
     if not bboxes:
         bboxes = np.zeros((0, 4))
-        labels = np.zeros((0, ))
+        labels = np.zeros((0,))
     else:
         bboxes = np.array(bboxes, ndmin=2) - 1
         labels = np.array(labels)
     if not bboxes_ignore:
         bboxes_ignore = np.zeros((0, 4))
-        labels_ignore = np.zeros((0, ))
+        labels_ignore = np.zeros((0,))
     else:
         bboxes_ignore = np.array(bboxes_ignore, ndmin=2) - 1
         labels_ignore = np.array(labels_ignore)
@@ -80,10 +80,10 @@ def cvt_annotations(devkit_path, years, split, out_file):
         xml_paths = [
             osp.join(devkit_path, f'VOC{year}/Annotations/{img_name}.xml')
             for img_name in img_names
-        ]
+            ]
         img_paths = [
             f'VOC{year}/JPEGImages/{img_name}.jpg' for img_name in img_names
-        ]
+            ]
         part_annotations = mmcv.track_progress(parse_xml,
                                                list(zip(xml_paths, img_paths)))
         annotations.extend(part_annotations)
@@ -183,8 +183,9 @@ def cvt_to_coco_json(annotations):
 def parse_args():
     parser = argparse.ArgumentParser(
         description='Convert PASCAL VOC annotations to mmdetection format')
-    parser.add_argument('--devkit_path', default="G:/工作项目/openmmlab/mmdetection/data/VOCdevkit",help='pascal voc devkit path')
-    parser.add_argument('-o', '--out-dir',default="", help='output path')
+    parser.add_argument('--devkit_path', default="G:/git_leeguandong/mmdetection_add/data/VOCdevkit",
+                        help='pascal voc devkit path')
+    parser.add_argument('-o', '--out-dir', default="", help='output path')
     parser.add_argument(
         '--out-format',
         default='pkl',

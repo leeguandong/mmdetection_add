@@ -8,6 +8,7 @@ from matplotlib.collections import PatchCollection
 from matplotlib.patches import Polygon
 from PIL import Image
 
+
 def showBBox(coco, anns, label_box=True, is_filling=True):
     """
     show bounding box of annotations or predictions
@@ -81,14 +82,9 @@ def show_coco(data_root, ann_file, img_prefix, only_bbox=True, show_all=True, ca
 
 
 if __name__ == '__main__':
-    # 和cfg里面设置一样 coco
-    # data_root = '/home/pi/dataset/coco/'
-    # ann_file = data_root + 'annotations/instances_val2017.json'
-    # img_prefix = data_root + 'images/val2017/'
-    # show_coco(data_root, ann_file, img_prefix)
 
     # voc转化为coco后显示
-    data_root = 'G:/工作项目/openmmlab/mmdetection/data/VOCdevkit/'
+    data_root = 'G:/git_leeguandong/mmdetection_add/data/VOCdevkit/'
     ann_file = data_root + 'VOC2007/ImageSets/Main/annotations/voc07_trainval.json'
-    img_prefix = data_root
+    img_prefix = data_root + 'VOC2007/JPEGImages/'
     show_coco(data_root, ann_file, img_prefix)

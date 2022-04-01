@@ -109,10 +109,10 @@ def _convert(xml_list, xml_dir, json_file):
 def parse_args():
     parser = argparse.ArgumentParser(
         description='Convert PASCAL VOC annotations to coco format')
-    parser.add_argument('--devkit_path', default="G:/工作项目/openmmlab/mmdetection/data/VOCdevkit/",
+    parser.add_argument('--devkit_path', default="G:/git_leeguandong/mmdetection_add/data/VOCdevkit/",
                         help='pascal voc devkit path')  # voc根路径 里面存放的是VOC2007和VOC2012两个子文件夹
     parser.add_argument('-o', '--out-dir',
-                        default="G:/工作项目/openmmlab/mmdetection/data/VOCdevkit/VOC2007/ImageSets/Main/",
+                        default="G:/git_leeguandong/mmdetection_add/data/VOCdevkit/VOC2007/ImageSets/Main/",
                         help='output path')  # annotations 保存文件夹
     args = parser.parse_args()
     return args

@@ -16,12 +16,13 @@ from mmdet import __version__
 from mmdet.apis import init_random_seed, set_random_seed, train_detector
 from mmdet.datasets import build_dataset
 from mmdet.models import build_detector
-from mmdet.utils import collect_env, get_root_logger, setup_multi_processes
+from mmdet.utils import get_root_logger, setup_multi_processes
+from mmdet_add.utils import collect_env
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a detector')
-    parser.add_argument('--config', default="../configs/yolo/yolov3_d53_mstrain-608_273e_coco.py",
+    parser.add_argument('--config', default="../configs/efficientdet/efficientdet_effb3_bifpn_crop640_voc.py",
                         help='train config file path')
     parser.add_argument('--work-dir', default="../results", help='the dir to save logs and models')
     parser.add_argument(
